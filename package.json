@@ -1,0 +1,34 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint --config .eslintrc.js --ext .js,.ts,.vue  ./",
+    "lint:watch": "chokidar '**/*.js' '**/*.vue' --ignore 'node_modules/**/*' --initial -c \"yarn run lint && echo 'eslint OK'\""
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.4.9",
+    "@tailwindcss/forms": "^0.5.3",
+    "autoprefixer": "^10.4.13",
+    "chokidar-cli": "^3.0.0",
+    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-vue": "^9.11.0",
+    "firebase": "^9.20.0",
+    "lodash.debounce": "^4.0.8",
+    "nuxt": "^3.0.0",
+    "nuxt-svgo": "^2.0.0",
+    "pinia": "^2.0.35",
+    "postcss": "^8.4.21",
+    "sass": "^1.57.1",
+    "sass-loader": "10",
+    "tailwindcss": "^3.2.4"
+  },
+  "name": "web",
+  "version": "1.0.0",
+  "license": "MIT"
+}

@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+
+docker exec -ti "$(basename $(dirname $(realpath docker-compose-dev.yml)))_web_1" "$@" \
+  || ./scripts/docker-compose run --rm web "$@"

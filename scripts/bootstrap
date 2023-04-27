@@ -1,0 +1,33 @@
+#!/bin/sh
+
+set -e
+
+echo "===================="
+echo "Setting up Dev environment..."
+echo "===================="
+
+#
+# Check for Docker
+#
+if test ! $(which docker)
+then
+  echo -n " x You need to install Docker:"
+  echo "  http://docs.docker.com/"
+  exit
+fi
+
+#
+# Check for docker-compose
+#
+if test ! $(which docker-compose)
+then
+  echo -n " x You need to install Docker Compose:"
+  echo "  http://docs.docker.com/compose/install/"
+  exit
+fi
+
+touch .env
+
+echo "===================="
+echo "Dev environment ready to use"
+echo "===================="

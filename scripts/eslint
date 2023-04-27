@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+
+./scripts/run_web yarn lint:watch

@@ -1,0 +1,18 @@
+#!/bin/bash
+set -e
+
+#
+# Functions available
+#
+start() {
+  echo "Installing node modules"
+  ./scripts/docker-compose run --rm web yarn
+
+  echo "Starting development server"
+  ./scripts/docker-compose up
+}
+
+#
+# Run logic
+#
+start
