@@ -1,5 +1,5 @@
 import {
-  collection, query, doc, getDocs, setDoc, deleteDoc,
+  collection, query, doc, getDocs, setDoc, deleteDoc, onSnapshot,
 } from 'firebase/firestore';
 
 const smartPush = (collection_arr, newDoc) => {
@@ -8,6 +8,8 @@ const smartPush = (collection_arr, newDoc) => {
     collection_arr.push(newDoc);
   }
 };
+
+let unsubGameListener = () => {};
 
 export default function setupActions(db) {
   return {
@@ -35,6 +37,30 @@ export default function setupActions(db) {
       });
     },
 
+    async listenGames() {
+      unsubGameListener();
+      unsubGameListener = onSnapshot(collection(db, 'games'), (snapshot) => {
+        snapshot.docChanges().forEach((change) => {
+          const changedGame = { id: change.doc.id, ...change.doc.data() };
+
+          if (change.type === 'added') {
+            smartPush(this.games, changedGame);
+          }
+          if (change.type === 'modified') {
+            const index = this.games.findIndex((g) => g.id === changedGame.id);
+            this.games[index] = Object.assign(this.games[index], changedGame);
+          }
+          if (change.type === 'removed') {
+            this.games = this.games.filter((g) => g.id !== changedGame.id);
+          }
+        });
+      });
+    },
+
+    unlistenGames() {
+      unsubGameListener();
+    },
+
     async createGame(game) {
       await setDoc(doc(db, 'games', game.id), game);
       smartPush(this.games, game);
@@ -43,7 +69,7 @@ export default function setupActions(db) {
     async updateGame(game) {
       await setDoc(doc(db, 'games', game.id), game);
       const index = this.games.findIndex((g) => g.id === game.id);
-      this.games[index] = game;
+      this.games[index] = Object.assign(this.games[index], game);
     },
 
     async destroyGame(game) {

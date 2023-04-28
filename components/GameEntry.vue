@@ -115,7 +115,7 @@ watch(props.game, async () => {
   if (props.game.id) {
     assignGameForm();
   }
-}, { immediate: true });
+}, { immediate: true, deep: true });
 
 //
 // Form

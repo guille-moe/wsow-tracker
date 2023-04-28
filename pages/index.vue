@@ -21,4 +21,5 @@ const store = genStore(cfg);
 
 store.getPlayers();
 store.getGames();
+store.listenGames();
 </script>
