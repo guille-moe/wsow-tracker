@@ -2,6 +2,7 @@
   <input
     :value="value"
     type="text"
+    class="px-1 text-center"
     @keydown="keyHandler"
     @input="changeValue"
   >

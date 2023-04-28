@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center justify-center">
-    <div class="w-3/4 mt-20 bg-black border border-green-600/25">
-      <GameEntryHeader class="border-b border-green-600/25" />
+    <div class="sm:w-3/4 w-full mt-20 bg-black border border-green-600/25">
+      <GameHeaderEntry class="border-b border-green-600/25" />
       <GameEntry class="border-b border-green-600/25" />
       <GameAggregateEntry class="bg-green-600 text-black" />
       <GameEntry
@@ -9,7 +9,7 @@
         :key="game.id"
         :game="game"
       />
-      <GameEntryHeader class="border-t border-green-600/25" />
+      <GameHeaderEntry class="border-t border-green-600/25" />
     </div>
   </div>
 </template>

@@ -4,7 +4,7 @@
     class="grid py-6"
     :style="gridStyle"
   >
-    <div class="px-5">
+    <div class="sm:px-6 px-1">
       <GameInput
         :value="gameForm.placement"
         type="text"
@@ -19,7 +19,7 @@
     <div
       v-for="player in store.currentPlayers"
       :key="player.id"
-      class="px-6"
+      class="sm:px-6 px-1"
     >
       <GameScoreInput
         class="
