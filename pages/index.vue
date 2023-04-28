@@ -2,7 +2,12 @@
   <div class="flex items-center justify-center">
     <div class="w-3/4 mt-20 bg-black border border-green-600/25">
       <GameEntryHeader class="border-b border-green-600/25" />
-      <GameEntry />
+      <GameEntry class="border-b border-green-600/25" />
+      <GameEntry
+        v-for="game in store.sortedGames"
+        :key="game.id"
+        :game="game"
+      />
       <GameEntryHeader class="border-t border-green-600/25" />
     </div>
   </div>
@@ -15,4 +20,5 @@ const cfg = useRuntimeConfig(); // eslint-disable-line no-undef
 const store = genStore(cfg);
 
 store.getPlayers();
+store.getGames();
 </script>

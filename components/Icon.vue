@@ -16,6 +16,7 @@ import TrashSVG from '~/assets/images/icons/trash.svg';
 import EditSVG from '~/assets/images/icons/edit.svg';
 import SaveSVG from '~/assets/images/icons/save.svg';
 import CloseSVG from '~/assets/images/icons/close.svg';
+import UndoSVG from '~/assets/images/icons/undo.svg';
 /* eslint-enable import/no-unresolved */
 
 const assets = {
@@ -26,6 +27,7 @@ const assets = {
   edit: EditSVG,
   save: SaveSVG,
   close: CloseSVG,
+  undo: UndoSVG,
   'chevron-right': ChevronRightSVG,
 };
 
