@@ -14,6 +14,7 @@ import AddWorkerSVG from '~/assets/images/icons/add_worker.svg';
 import ChevronRightSVG from '~/assets/images/icons/chevron_right.svg';
 import TrashSVG from '~/assets/images/icons/trash.svg';
 import EditSVG from '~/assets/images/icons/edit.svg';
+import SaveSVG from '~/assets/images/icons/save.svg';
 import CloseSVG from '~/assets/images/icons/close.svg';
 /* eslint-enable import/no-unresolved */
 
@@ -23,6 +24,7 @@ const assets = {
   'add-worker': AddWorkerSVG,
   trash: TrashSVG,
   edit: EditSVG,
+  save: SaveSVG,
   close: CloseSVG,
   'chevron-right': ChevronRightSVG,
 };

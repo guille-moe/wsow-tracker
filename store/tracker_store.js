@@ -3,6 +3,7 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
 import actions from './tracker_store/actions';
+import getters from './tracker_store/getters';
 
 const storeObj = {
   store: null,
@@ -28,11 +29,14 @@ const genStore = (cfg) => {
     }),
 
     actions: actions(db),
+    getters,
   });
 
   storeObj.store = useStore();
   return storeObj.store;
 };
 
+const useStore = () => storeObj.store;
+
 export const { store } = storeObj;
-export { genStore };
+export { genStore, useStore };

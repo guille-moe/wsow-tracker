@@ -1,6 +1,10 @@
 <template>
   <div class="flex items-center justify-center">
-    WSOW Tracker
+    <div class="w-3/4 mt-20 bg-black border border-green-600/25">
+      <GameEntryHeader class="border-b border-green-600/25" />
+      <GameEntry />
+      <GameEntryHeader class="border-t border-green-600/25" />
+    </div>
   </div>
 </template>
 
