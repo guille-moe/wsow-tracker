@@ -11,7 +11,7 @@
           to="/"
           class="py-3 px-4 text-lg"
         >
-          WSOW Tracker
+          WSOW 2023 Tracker
         </NuxtLink>
       </div>
     </div>

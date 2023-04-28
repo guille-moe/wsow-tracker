@@ -81,6 +81,7 @@
 <script setup>
 import { ref, computed, watch } from 'vue';
 import { useStore } from '../store/tracker_store';
+import { sum, weightedPlacementScore } from '../lib/utils';
 
 const store = useStore();
 
@@ -210,28 +211,12 @@ const destroyGame = () => {
 //
 const allKills = computed(() => {
   const scores = Object.values(gameForm.value.scores);
-  return scores.reduce((acc, score) => acc + Number(score.kills || '0'), 0);
+  return sum(scores, 'kills');
 });
 
-const weigthedScore = computed(() => {
-  let weight = 1;
-
-  const placement = Number(gameForm.value.placement);
-  if (placement === 1) {
-    weight = 2;
-  } else if (placement >= 2 && placement <= 5) {
-    weight = 1.8;
-  } else if (placement >= 6 && placement <= 10) {
-    weight = 1.6;
-  } else if (placement >= 11 && placement <= 20) {
-    weight = 1.4;
-  } else if (placement >= 21 && placement <= 35) {
-    weight = 1.2;
-  }
-
-  const score = allKills.value * weight;
-  return Math.round(score * 100) / 100;
-});
+const weigthedScore = computed(() => (
+  weightedPlacementScore(gameForm.value.placement, allKills.value)
+));
 
 const gridStyle = computed(() => ({
   'grid-template-columns': `repeat(${store.currentPlayers.length + 4}, minmax(0, 1fr))`,

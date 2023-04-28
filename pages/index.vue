@@ -3,6 +3,7 @@
     <div class="w-3/4 mt-20 bg-black border border-green-600/25">
       <GameEntryHeader class="border-b border-green-600/25" />
       <GameEntry class="border-b border-green-600/25" />
+      <GameAggregateEntry class="bg-green-600 text-black" />
       <GameEntry
         v-for="game in store.sortedGames"
         :key="game.id"
