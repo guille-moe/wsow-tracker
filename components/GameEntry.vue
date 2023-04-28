@@ -1,5 +1,6 @@
 <template>
   <div
+    ref="root"
     class="grid py-6"
     :style="gridStyle"
   >
@@ -79,7 +80,9 @@
 </template>
 
 <script setup>
-import { ref, computed, watch } from 'vue';
+import {
+  ref, computed, watch, nextTick,
+} from 'vue';
 import { useStore } from '../store/tracker_store';
 import { sum, weightedPlacementScore } from '../lib/utils';
 
@@ -98,6 +101,7 @@ const gameForm = ref({
   placement: '',
   scores: {},
 });
+const root = ref(null);
 
 //
 // Sync game and gameForm
@@ -173,6 +177,10 @@ const createGame = () => {
       placement: '',
       scores: {},
     };
+
+    nextTick(() => {
+      root.value.querySelector('input').focus();
+    });
   });
 };
 
